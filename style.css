@@ -1,7 +1,7 @@
     @import url('modern-normalize.css');
 
     :root {
-    line-height: 1.5;
+    line-height: 1.2;
     box-sizing: border-box;
     }
 
@@ -42,6 +42,7 @@
     display: grid;
     grid-template-areas: "header" "library" "footer";
     grid-template-rows: .5fr calc(100vh - .8fr) .3fr;
+    grid-template-columns: 95vw;
 }
 
 #header {
@@ -62,9 +63,11 @@
     grid-area: library;
     background-color: var(--color-light);
     display: grid;
-    grid-auto-rows: auto;
-    grid-auto-columns: 25%;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
     grid-auto-flow: column;
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
 }
 
 div .book:nth-child(odd) {
@@ -82,25 +85,19 @@ div .book {
     margin: 2px;
 }
 
+.book button {
+    background-color: var(--color-shadow);
+    border: none;
+    font-size: .6rem;
+    margin-left: 75%;
+    margin-right: 5px;
+}
+
 .bookTitle {
     font-style: italic;
 }
 
 /* New Book form */
-
-/* Button used to open the contact form - fixed at the bottom of the page */
-/* .open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-} */
 
 /* The popup form - hidden by default */
 .form-popup {
@@ -119,6 +116,10 @@ div .book {
   padding: 10px;
   background-color: var(--color-shadow);
   border-left: solid black 5px;
+}
+
+.form-container h2 {
+    text-align: center;
 }
 
 /* Full-width input fields */
@@ -148,7 +149,7 @@ div .book {
   opacity: 0.8;
 }
 
-/* Add a red background color to the cancel button */
+/* Add a background color to the cancel button */
 .form-container .cancel {
   background-color: gray;
 }
