@@ -10,8 +10,9 @@
     </head>
     <body>
         <div id="page">
-            <div id="title">
-                Welcome to my Library
+            <div id="header">
+                <span id="greeting">Welcome to my Library</span>
+                <span id="addButton"><button class="" onclick="openForm()">Add a book</button></span>
             </div>
             <div id="library">
             </div>
@@ -19,7 +20,26 @@
                 <a href="https://madmilliner.github.io/jasonPeterson/" target="_blank">made by jasonPeterson</a>
             </div>
         </div>
-        
+            <div class="form-popup" id="myForm">
+                <form action="/action_page.php" class="form-container">
+                    <h1>New Book</h1>
+
+                    <label for="book.title"><b>Title</b></label>
+                    <input type="text" placeholder="Book Title" name="title" required>
+
+                    <label for="book.author"><b>Author</b></label>
+                    <input type="text" placeholder="Book Author" name="author" required>
+
+                    <label for="book.pages"><b>Number of Pages</b></label>
+                    <input type="text" placeholder="# Pages" name="pages" required>
+
+                    <label for="book.read"><b>Have you read</b></label>
+                    <input type="text" placeholder="Yes/No" name="read" required>
+
+                    <button type="submit" class="btn">Add</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
         <script src="script.js" async defer></script>
     </body>
 </html>
