@@ -31,11 +31,11 @@
 /* END TEMPLATE */
 
 :root {
-    --color-light: #e2d2b8;
-    --color-odd: #9b775d;
-    --color-even: #5e503e;
-    --color-highlight: #da9e82;
-    --color-shadow: #884e1e;
+    --color-light: #fbf2c4;
+    --color-odd: #74a892;
+    --color-even: #008585;
+    --color-highlight: #e5c185;
+    --color-shadow: #c7522a;
 }
 
 #page {
@@ -82,10 +82,14 @@ div .book {
     margin: 2px;
 }
 
+.bookTitle {
+    font-style: italic;
+}
+
 /* New Book form */
 
 /* Button used to open the contact form - fixed at the bottom of the page */
-.open-button {
+/* .open-button {
   background-color: #555;
   color: white;
   padding: 16px 20px;
@@ -96,7 +100,7 @@ div .book {
   bottom: 23px;
   right: 28px;
   width: 280px;
-}
+} */
 
 /* The popup form - hidden by default */
 .form-popup {
@@ -104,12 +108,13 @@ div .book {
   position: fixed;
   bottom: 0;
   right: 15px;
-  border: 3px solid #f1f1f1;
+  /* border: 3px solid #f1f1f1; */
   z-index: 9;
 }
 
 /* Add styles to the form container */
 .form-container {
+  font-size: .6rem;
   max-width: 300px;
   padding: 10px;
   background-color: var(--color-shadow);
@@ -117,7 +122,7 @@ div .book {
 }
 
 /* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input[type=text], .form-container input[type="text"] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -126,8 +131,8 @@ div .book {
 }
 
 /* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
+.form-container input[type=text]:focus, .form-container input[type="text"]:focus {
+  background-color: #ddddddcb;
   outline: none;
 }
 
@@ -145,7 +150,7 @@ div .book {
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red;
+  background-color: gray;
 }
 
 /* Add some hover effects to buttons */

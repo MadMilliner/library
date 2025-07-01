@@ -22,10 +22,23 @@ function showLibrary() {
     myLibrary.forEach(book => {
         var bookCard = document.createElement("div");
         bookCard.classList.add("book");
-        bookCard.innerHTML = `<p>Title: ${book.title}</p><p>Author: ${book.author}</p><p>Pages: ${book.pages}</p><p>Have I read: ${book.read}</p>`;
+        bookCard.innerHTML = `<p>Title: <span class="bookTitle">${book.title}</span></p><p>Author: ${book.author}</p><p>Pages: ${book.pages}</p><p>Have I read: ${book.read}</p>`;
         library.appendChild(bookCard);
         
     });
+}
+
+function addBookButton(title, author, pages, read) {
+    addBookToLibrary(title, author, pages, read);
+    myLibrary.sort();
+    showLibrary();
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  var newBook =    document.getElementById("newBook");
+
+  addBookButton(title, author, pages, read)
 }
 
 addBookToLibrary("The Diary of a Young Girl", "Ann Frank", 283, "Yes");

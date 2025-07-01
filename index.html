@@ -21,22 +21,25 @@
             </div>
         </div>
             <div class="form-popup" id="myForm">
-                <form action="/action_page.php" class="form-container">
+                <form id="newBook" class="form-container">
                     <h1>New Book</h1>
 
                     <label for="book.title"><b>Title</b></label>
-                    <input type="text" placeholder="Book Title" name="title" required>
+                    <input type="text" placeholder="Book Title" name="title" id="title" required>
 
                     <label for="book.author"><b>Author</b></label>
-                    <input type="text" placeholder="Book Author" name="author" required>
+                    <input type="text" placeholder="Book Author" name="author" id="author" required>
 
                     <label for="book.pages"><b>Number of Pages</b></label>
-                    <input type="text" placeholder="# Pages" name="pages" required>
+                    <input type="number" placeholder="# Pages" name="pages" id="pages" required>
 
                     <label for="book.read"><b>Have you read</b></label>
-                    <input type="text" placeholder="Yes/No" name="read" required>
+                    <input type="radio" name="read" id="Yes" required>
+                    <label for="Yes">Yes</label>
+                    <input type="radio" name="read" id="No" required>
+                    <label for="No">No</label>
 
-                    <button type="submit" class="btn">Add</button>
+                    <button onclick="addBookButton(document.getElementById('title'),document.getElementById('author'),document.getElementById('pages'),document.getElementById('read'))" class="btn primary">Add</button>
                     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                 </form>
             </div>
