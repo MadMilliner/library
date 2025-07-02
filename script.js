@@ -31,11 +31,9 @@ function showLibrary() {
     });
   }
 
-function deleteBook(id) {
-    const bookIndex = myLibrary.findIndex(book => book.id === id); // FIXED: Proper way to find and remove book
-    if (bookIndex > -1) {
-        myLibrary.splice(bookIndex, 1);
-    }
+function deleteBook() {
+    myLibrary.splice(`this.id`,1);
+    // myLibrary.sort();
     library.innerHTML = "";
     showLibrary();
 };
