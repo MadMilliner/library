@@ -25,14 +25,16 @@ function showLibrary() {
         var bookCard = document.createElement("div");
         bookCard.classList.add("book");
         bookCard.setAttribute("id", `${book.id}`)
-        bookCard.innerHTML = `<p>Title: <span class="bookTitle">${book.title}</span></p><p>Author: ${book.author}</p><p>Pages: ${book.pages}</p><p class="have-read">Have I read: ${book.getReadStatus()}</p><p><button id="${book.id}" onclick="readBook('${book.id}')">Read</button><button id="${book.title}" onclick="deleteBook()">Delete</button></p>`;
+        bookCard.innerHTML = `<p>Title: <span class="bookTitle">${book.title}</span></p><p>Author: ${book.author}</p><p>Pages: ${book.pages}</p><p class="have-read">Have I read: ${book.getReadStatus()}</p><p><button onclick="readBook('${book.id}')">Read</button><button onclick="deleteBook('${book.id}')">Delete</button></p>`;
         library.appendChild(bookCard);
         
     });
   }
 
-function deleteBook() {
-    myLibrary.splice(`this.id`,1);
+function deleteBook(id) {
+    const thisBook = myLibrary.find((book) => book.id === String(id));
+    let index = myLibrary.indexOf(thisBook)
+    myLibrary.splice(index, 1);
     // myLibrary.sort();
     library.innerHTML = "";
     showLibrary();
