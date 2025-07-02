@@ -1,9 +1,9 @@
 const myLibrary = []
 const library = document.getElementById('library');
 const addBookButton = document.getElementById('addBook');
-const newTitle = document.getElementById('newTitle').value;
-const newAuthor = document.getElementById('newAuthor').value;
-const newPages = document.getElementById('newPages').value;
+// var newTitleInput = document.getElementById('newTitle');
+// var newAuthorInput = document.getElementById('newAuthor');
+// var newPagesInput = document.getElementById('newPages');
 
 // var newRead = document.getElementById('newRead').value;
 
@@ -63,19 +63,22 @@ function addBookToLibrary(title, author, pages) {
 };
 
 function addBookFunction(title, author, pages) {
-    addBookToLibrary(title, author, pages);
+    console.log(newTitle, newAuthor);
+    // addBookToLibrary(title, author, pages);
+    var newBook = new Book(title, author, pages);
+    myLibrary.push(newBook);
     library.innerHTML = "";
     myLibrary.sort();
     showLibrary();
+    document.forms[0].reset();
 };
 
 addBookButton.onclick = function(button) {
-  button.preventDefault();
-  let title = newTitle;
-  let author = newAuthor;
-  let pages = newPages;
-
-  addBookFunction(title, author, pages);
+    button.preventDefault();
+    let title = document.getElementById('newTitle').value;
+    let author = document.getElementById('newAuthor').value;
+    let pages = document.getElementById('newPages').value;
+    addBookFunction(title, author, pages);
 };
 
 addBookToLibrary("The Diary of a Young Girl", "Ann Frank", 283, "Yes");
@@ -86,9 +89,10 @@ addBookToLibrary("Alice's in Wonderland", "Lewis Carrol", 320);
 showLibrary();
 
 function openForm() {
-  document.getElementById("myForm").style.display = "block";
+    document.forms[0].reset();
+    document.getElementById("myForm").style.display = "block";
 };
 
 function closeForm() {
-  document.getElementById("myForm").style.display = "none";
+    document.getElementById("myForm").style.display = "none";
 };
