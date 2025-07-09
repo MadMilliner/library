@@ -73,6 +73,7 @@ function addBookToLibrary(title, author, pages) {
 
 function addBookFunction(title, author, pages) {
     console.log(newTitle, newAuthor);
+    if (title === "" || author === "" || pages === "") {alert("Please enter a Title, Author, and number of Pages before adding"); return;} else
     // addBookToLibrary(title, author, pages);
     var newBook = new Book(title, author, pages);
     myLibrary.push(newBook);
