@@ -7,18 +7,35 @@ const addBookButton = document.getElementById('addBook');
 
 // var newRead = document.getElementById('newRead').value;
 
-function Book(title, author, pages) {
+// function Book(title, author, pages) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = Number(pages);
+//     this.read = false;
+//     this.id = crypto.randomUUID();
+    
+//     if (!new.target) {
+//         throw new Error("You must use the 'new' operator to call the constructor");
+//     }
+// };
+
+class Book {
+    constructor(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = Number(pages);
     this.read = false;
     this.id = crypto.randomUUID();
+    }
+
+    readToggle() {
+        this.read = !this.read
+    }
     
-    if (!new.target) {
-        throw new Error("You must use the 'new' operator to call the constructor");
+    getReadStatus() {
+        return this.read ? "Yes" : "No";
     }
 };
-
 
 function showLibrary() {
     myLibrary.forEach(book => {
@@ -29,7 +46,7 @@ function showLibrary() {
         library.appendChild(bookCard);
         
     });
-  }
+};
 
 function deleteBook(id) {
     const thisBook = myLibrary.find((book) => book.id === String(id));
@@ -38,14 +55,6 @@ function deleteBook(id) {
     // myLibrary.sort();
     library.innerHTML = "";
     showLibrary();
-};
-
-Book.prototype.readToggle = function() {
-    this.read = !this.read
-};
-
-Book.prototype.getReadStatus = function() {
-    return this.read ? "Yes" : "No";
 };
 
 function readBook(id) {
