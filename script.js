@@ -1,9 +1,9 @@
 const myLibrary = []
 const library = document.getElementById('library');
 const addBookButton = document.getElementById('addBook');
-// var newTitleInput = document.getElementById('newTitle');
-// var newAuthorInput = document.getElementById('newAuthor');
-// var newPagesInput = document.getElementById('newPages');
+var newTitleInput = document.getElementById('newTitle');
+var newAuthorInput = document.getElementById('newAuthor');
+var newPagesInput = document.getElementById('newPages');
 
 // var newRead = document.getElementById('newRead').value;
 
@@ -74,7 +74,6 @@ function addBookToLibrary(title, author, pages) {
 function addBookFunction(title, author, pages) {
     console.log(newTitle, newAuthor);
     if (title === "" || author === "" || pages === "") {alert("Please enter a Title, Author, and number of Pages before adding"); return;} else
-    // addBookToLibrary(title, author, pages);
     var newBook = new Book(title, author, pages);
     myLibrary.push(newBook);
     library.innerHTML = "";
@@ -91,12 +90,37 @@ addBookButton.onclick = function(button) {
     addBookFunction(title, author, pages);
 };
 
+newTitleInput.addEventListener("input", (event) => {
+  newTitleInput.setCustomValidity("");
+  if (!newTitleInput.validity.valid) {
+    return;
+  }
+
+  if (validityState.valueMissing) {
+    email.setCustomValidity("Please enter a title");
+  }
+});
+
 addBookToLibrary("The Diary of a Young Girl", "Ann Frank", 283, "Yes");
 addBookToLibrary("Lord of the Rings", "J. R. R. Tolkein", 1216, "Yes");
 addBookToLibrary("The Glass Castle", "Jeanette Walls", 288, "No");
 addBookToLibrary("Alice's in Wonderland", "Lewis Carrol", 320);
 
 showLibrary();
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "b") {
+    const popup = document.getElementById("myForm");
+    if (popup.style.display === "none" || popup.style.display === "") {
+      e.preventDefault();
+      openForm(); 
+    }
+    else if (popup.style.display === "block") {
+      e.preventDefault();
+      closeForm(); 
+    }
+  }
+  })
 
 function openForm() {
     document.forms[0].reset();
